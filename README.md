@@ -1,6 +1,6 @@
-# First C API using Facil
+# First C Facil
 
-Building restful web service (API) using Facil in C programming language and test its benchmark and performance.
+Building web service (API) using Facil in C programming language and test its benchmark and performance.
 
 ## Performance
 
