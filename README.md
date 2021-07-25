@@ -2,12 +2,33 @@
 
 ## Performance
 
+### Internal web-server
+
+Going to test with `WRK`:
+
 ```
 for i in `seq 0 10`; do    wrk -c 400 -d 60s -t 8 http://127.0.0.1:3000 --latency > run-${i}.log; done
 ```
 
 **Requests/sec: 440759.01**
 **Transfer/sec:     95.00MB**
+
+### Nginx
+```
+server {
+	listen       81;
+	server_name  localhost;
+	location / {
+		proxy_pass http://localhost:3000;
+	}
+}
+```
+
+Going to test with `WRK`:
+
+```
+for i in `seq 0 10`; do    wrk -c 400 -d 60s -t 8 http://127.0.0.1:81 --latency > run-${i}-nginx.log; done
+```
 
 To learn more about using the [facil.io framework](http://facil.io), please read through the comments in the source code or the guides on the framework's website.
 
