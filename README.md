@@ -51,6 +51,10 @@ Going to test with `WRK`:
 for i in `seq 0 10`; do    wrk -c 400 -d 60s -t 8 http://127.0.0.1:2015 --latency > run-${i}-caddy.log; done
 ```
 
+**Requests/sec:  40090.88**
+
+**Transfer/sec:      8.53MB**
+
 To learn more about using the [facil.io framework](http://facil.io), please read through the comments in the source code or the guides on the framework's website.
 
 Good luck!
