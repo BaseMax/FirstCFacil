@@ -1,0 +1,13 @@
+Running 1m test @ http://localhost/test.php
+  8 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    13.27ms    1.69ms  35.08ms   88.71%
+    Req/Sec     3.78k   334.32     5.73k    79.25%
+  Latency Distribution
+     50%   12.70ms
+     75%   13.68ms
+     90%   15.11ms
+     99%   20.29ms
+  1808097 requests in 1.00m, 379.35MB read
+Requests/sec:  30119.64
+Transfer/sec:      6.32MB
