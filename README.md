@@ -11,6 +11,7 @@ for i in `seq 0 10`; do    wrk -c 400 -d 60s -t 8 http://127.0.0.1:3000 --latenc
 ```
 
 **Requests/sec: 440759.01**
+
 **Transfer/sec:     95.00MB**
 
 ### Nginx
@@ -29,6 +30,10 @@ Going to test with `WRK`:
 ```
 for i in `seq 0 10`; do    wrk -c 400 -d 60s -t 8 http://127.0.0.1:81 --latency > run-${i}-nginx.log; done
 ```
+
+**Requests/sec:  16087.84**
+
+**Transfer/sec:      3.90MB**
 
 To learn more about using the [facil.io framework](http://facil.io), please read through the comments in the source code or the guides on the framework's website.
 
