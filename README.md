@@ -57,6 +57,92 @@ for i in `seq 0 10`; do    wrk -c 400 -d 60s -t 8 http://127.0.0.1:2015 --latenc
 
 **Transfer/sec:      8.53MB**
 
+### Nginx PHP-FPM (using port and not socket file)
+
+#### Worker is 1
+
+Test php-fpm with port in nginx (worker is 1):
+
+The `/etc/nginx/nginx.conf` file:
+
+```
+worker_processes  1;
+events {
+    worker_connections  1024;
+}
+http {
+	server {
+		listen       80;
+		server_name  localhost;
+		root   /usr/share/nginx/html;
+		location ~ \.php$ {
+			fastcgi_pass   127.0.0.1:9000;
+			fastcgi_index  index.php;
+			fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+			include        fastcgi_params;
+		}
+	}
+	....
+}
+```
+
+```
+Running 1m test @ http://localhost/test.php
+  8 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.53ms    1.26ms 107.78ms   98.77%
+    Req/Sec     2.14k   100.78     3.61k    74.56%
+  Latency Distribution
+     50%   23.45ms
+     75%   23.72ms
+     90%   23.96ms
+     99%   24.84ms
+  1020477 requests in 1.00m, 214.10MB read
+Requests/sec:  16999.73
+Transfer/sec:      3.57MB
+```
+
+**Requests/sec:  16999.73**
+
+**Transfer/sec:      3.57MB**
+
+#### Worker is `auto`
+
+Test php-fpm with port in nginx (worker is auto):
+
+The `/etc/nginx/nginx.conf` file:
+
+```
+worker_processes  auto;
+events {
+    worker_connections  1024;
+}
+http {
+	server {
+		listen       80;
+		server_name  localhost;
+		root   /usr/share/nginx/html;
+		location ~ \.php$ {
+			fastcgi_pass   127.0.0.1:9000;
+			fastcgi_index  index.php;
+			fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+			include        fastcgi_params;
+		}
+	}
+	....
+}
+```
+
+Going to test with `WRK`:
+
+```
+for i in `seq 0 10`; do    wrk -c 400 -d 60s -t 8 http://localhost/test.php --latency > run-${i}-nginx-phpfpm.log; done
+```
+
+**Requests/sec:  30119.64**
+
+**Transfer/sec:      6.32MB**
+
 To learn more about using the [facil.io framework](http://facil.io), please read through the comments in the source code or the guides on the framework's website.
 
 Good luck!
