@@ -165,6 +165,12 @@ for i in `seq 0 10`; do    wrk -c 400 -d 60s -t 8 http://localhost/test.php --la
 
 **Transfer/sec:      6.32MB**
 
+### Nginx (pure html file)
+
+**Requests/sec: 168234.33**
+
+**Transfer/sec:    136.37MB**
+
 ---------
 
 ### What you're starting with
