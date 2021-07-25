@@ -1,6 +1,28 @@
-# First C API using Facil
+# First C Facil
 
-Building restful web service (API) using Facil in C programming language and test its benchmark and performance.
+Building web service (API) using Facil in C programming language and test its benchmark and performance.
+
+## Using
+
+```
+$ make
+$ ./tmp/fioapp
+INFO: Listening on port 3000
+INFO: Server is running 5 workers X 6 threads with facil.io 0.7.4 (epoll)
+* Detected capacity: 131056 open file limit
+* Root pid: 101795
+* Press ^C to stop
+
+INFO: 101803 is running.
+INFO: 101801 is running.
+INFO: 101799 is running.
+INFO: 101805 is running.
+INFO: 101797 is running.
+```
+
+To learn more about using the [facil.io framework](http://facil.io), please read through the comments in the source code or the guides on the framework's website.
+
+Good luck!
 
 ## Performance
 
@@ -143,9 +165,13 @@ for i in `seq 0 10`; do    wrk -c 400 -d 60s -t 8 http://localhost/test.php --la
 
 **Transfer/sec:      6.32MB**
 
-To learn more about using the [facil.io framework](http://facil.io), please read through the comments in the source code or the guides on the framework's website.
+### Nginx (pure html file)
 
-Good luck!
+**Requests/sec: 168234.33**
+
+**Transfer/sec:    136.37MB**
+
+---------
 
 ### What you're starting with
 
