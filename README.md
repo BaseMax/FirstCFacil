@@ -177,6 +177,13 @@ for i in `seq 0 10`; do    wrk -c 400 -d 60s -t 8 http://localhost --latency > r
 
 **Transfer/sec:    136.37MB**
 
+
+### Hardward
+
+**CPU:** Intel Core i5-9400F @ 6x 4.1GHz [71.0°C]
+
+**RAM:** 7183MiB / 32058MiB
+
 ---------
 
 ### What you're starting with
