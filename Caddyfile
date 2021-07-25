@@ -1,5 +1,5 @@
-:2019
+:2021
 
-root * /home/max/Projects/CAPIFacil/
+root * /var/www/wordpress
 php_fastcgi unix//run/php-fpm/php-fpm.sock
 file_server
