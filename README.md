@@ -20,6 +20,10 @@ INFO: 101805 is running.
 INFO: 101797 is running.
 ```
 
+To learn more about using the [facil.io framework](http://facil.io), please read through the comments in the source code or the guides on the framework's website.
+
+Good luck!
+
 ## Performance
 
 ### Internal web-server
@@ -161,9 +165,7 @@ for i in `seq 0 10`; do    wrk -c 400 -d 60s -t 8 http://localhost/test.php --la
 
 **Transfer/sec:      6.32MB**
 
-To learn more about using the [facil.io framework](http://facil.io), please read through the comments in the source code or the guides on the framework's website.
-
-Good luck!
+---------
 
 ### What you're starting with
 
