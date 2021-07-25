@@ -1,12 +1,19 @@
 # Welcome to your new application
 
-Please fill in this README file with relevant information for your application.
+## Performance
+
+```
+for i in `seq 0 10`; do    wrk -c 400 -d 60s -t 8 http://127.0.0.1:3000 --latency > run-${i}.log; done
+```
+
+**Requests/sec: 440759.01**
+**Transfer/sec:     95.00MB**
 
 To learn more about using the [facil.io framework](http://facil.io), please read through the comments in the source code or the guides on the framework's website.
 
 Good luck!
 
-## What you're starting with
+### What you're starting with
 
 This folder contains the library code, some boilerplate application code, a complex (yet very helpful) `makefile` and some helper scripts.
 
