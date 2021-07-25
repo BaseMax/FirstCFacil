@@ -2,6 +2,24 @@
 
 Building web service (API) using Facil in C programming language and test its benchmark and performance.
 
+## Using
+
+```
+$ make
+$ ./tmp/fioapp
+INFO: Listening on port 3000
+INFO: Server is running 5 workers X 6 threads with facil.io 0.7.4 (epoll)
+* Detected capacity: 131056 open file limit
+* Root pid: 101795
+* Press ^C to stop
+
+INFO: 101803 is running.
+INFO: 101801 is running.
+INFO: 101799 is running.
+INFO: 101805 is running.
+INFO: 101797 is running.
+```
+
 ## Performance
 
 ### Internal web-server
